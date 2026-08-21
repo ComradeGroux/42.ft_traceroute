@@ -20,7 +20,8 @@ SRC_DIR		= src
 BUILD_DIR	= build
 OBJ_DIR		= ${BUILD_DIR}/obj
 
-SRCS_LIST 	=	main.c
+SRCS_LIST 	=	main.c		\
+				check.c
 
 SRCS	:= ${addprefix ${SRC_DIR}/, ${SRCS_LIST}}
 VPATH	:= $(dir $(SRCS))

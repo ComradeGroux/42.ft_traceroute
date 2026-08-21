@@ -1,9 +1,11 @@
 #include <stdlib.h>
 
+#include "check.h"
+
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
+	char*		host = NULL;
+	checking_arguments(argc, argv, &host);
 
-	exit(EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
