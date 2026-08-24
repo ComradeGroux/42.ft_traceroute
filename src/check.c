@@ -15,13 +15,7 @@ Options:\n\
 
 void	checking_arguments(int argc, char **argv, char **host)
 {
-	if (argc == 1)
-	{
-		fprintf(stderr, "ft_traceroute: usage error: Destination address required\n");
-		exit(EXIT_FAILURE);
-	}
-
-	int			nb_host = 0;
+	int	nb_host = 0;
 	for (int i = 1; i < argc; i++)
 	{
 		if (strcmp(argv[i], "-?") == 0 || strcmp(argv[i], "--help") == 0)

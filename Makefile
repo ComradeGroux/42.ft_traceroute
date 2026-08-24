@@ -20,8 +20,12 @@ SRC_DIR		= src
 BUILD_DIR	= build
 OBJ_DIR		= ${BUILD_DIR}/obj
 
-SRCS_LIST 	=	main.c		\
-				check.c
+SRCS_LIST 	=	main.c			\
+				check.c			\
+				socket.c		\
+				traceroute.c	\
+				request.c		\
+				response.c
 
 SRCS	:= ${addprefix ${SRC_DIR}/, ${SRCS_LIST}}
 VPATH	:= $(dir $(SRCS))
@@ -34,10 +38,6 @@ ${NAME}: ${OBJ_DIR}/.compile_start ${OBJS}
 	@printf "$(BOLD)Linking $(NAME)$(RESET)\n"
 	@${CC} ${CFLAGS} ${OBJS} -o ${NAME} -lm
 	@printf "$(GREEN)  ✓ $(NAME) ready$(RESET)\n"
-	@printf "$(BOLD)Setting up capabilities (Need to be run as root)$(RESET)\n"
-	@echo "sudo setcap ca_net_raw+ep"
-	@sudo setcap cap_net_raw+ep $(NAME)
-	@printf "$(GREEN)  ✓ capabilities (cap_net_raw + ep) set on $(NAME)$(RESET)\n"
 
 ${OBJ_DIR}/.compile_start: | ${OBJ_DIR}
 	@printf "$(BOLD)Compiling $(NAME)$(RESET)\n"
